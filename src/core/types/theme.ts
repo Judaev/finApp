@@ -1,0 +1,30 @@
+import { ThemesEnum } from "../enum/themeEnum";
+
+export declare type Theme = {
+  name: ThemesEnum;
+  isDark: boolean;
+  primary: string;
+  secondary: string;
+  secondaryLight: string;
+  primaryLight: string;
+  error: string;
+  secondaryOpacity50: string;
+  secondaryOpacity10: string;
+  warn: string;
+  warnOpacity50: string;
+  warnOpacity10: string;
+  success: string;
+  successOpacity50: string;
+  successOpacity10: string;
+  background: string;
+  backgroundSecondary: string;
+  textPrimary: string;
+  textPrimaryOpacity30: string;
+  textPrimaryContrast: string;
+  textSecondary: string;
+  textSecondaryOpacity50: string;
+  borderFrame: string;
+  gradientPrimary: string[];
+  gradientSecondary: string[];
+  imagedCard: string;
+};
