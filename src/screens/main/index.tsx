@@ -1,25 +1,30 @@
-import React, { FunctionComponent, memo, useCallback } from 'react';
-import { Text, View } from 'react-native';
-import Button from '../../components/Button';
+import React, { FunctionComponent, memo } from 'react';
+import { ScrollView, StyleSheet } from 'react-native';
+import { Theme } from '../../core/types/theme';
+import useStyles from '../../hooks/useStyles';
 import useTheme from '../../hooks/useTheme';
+import BankingCard from './components/BankingCard';
+import InfoSection from './components/InfoSection';
+import ProfileHeader from './components/ProfileHeader';
 
 const MainScreen: FunctionComponent = memo(function MainScreen() {
   const theme = useTheme();
-
-  const buttonHandler = useCallback(() => {
-    console.log('Pressed!');
-  }, []);
+  const appStyles = useStyles(styleSheet);
 
   return (
-    <View style={{ paddingHorizontal: 20 }}>
-      <View>
-        <Text style={{ color: theme.primary }}>Judaev Denis</Text>
-      </View>
-      <Button text='Press' width={100} onPress={buttonHandler} />
-    </View>
+    <ScrollView style={appStyles.container}>
+      <ProfileHeader />
+      <BankingCard />
+      <InfoSection />
+    </ScrollView>
   );
 });
 
-
+const styleSheet = (theme: Theme) =>
+  StyleSheet.create({
+    container: {
+      paddingHorizontal: 20,
+    },
+  });
 
 export default MainScreen;

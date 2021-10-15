@@ -10,12 +10,16 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "@react-navigation/bottom-tabs": "^6.0.8",
+    "@react-navigation/bottom-tabs": "^6.0.9",
     "@react-navigation/native": "^6.0.5",
+    "@react-navigation/native-stack": "^6.2.4",
+    "@react-navigation/stack": "^6.0.11",
     "react": "17.0.2",
     "react-native": "0.66.0",
+    "react-native-reanimated": "file:react-native-reanimated-2.3.0-beta.2.tgz",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.8.0",
+    "react-native-svg": "^12.1.1",
     "recoil": "^0.4.1"
   },
   "devDependencies": {

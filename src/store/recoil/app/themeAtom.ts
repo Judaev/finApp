@@ -6,7 +6,7 @@ import mainTheme from '../../../core/types/mainTheme';
 
 const themeAtom = atom<Theme>({
   key: 'theme',
-  default: Appearance.getColorScheme() === 'dark' ? darkTheme : mainTheme,
+  default: darkTheme,
 });
 
 export default themeAtom;

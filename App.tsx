@@ -1,13 +1,13 @@
 import React from 'react';
 import { SafeAreaView, StatusBar } from 'react-native';
 import { RecoilRoot } from 'recoil';
-import MainScreen from './src/screens/main';
+import AppNavigation from './src/navigation';
 
 const ConfigureApp = () => {
   return (
     <SafeAreaView style={{ backgroundColor: 'white', height: '100%' }}>
-      <StatusBar barStyle={'dark-content'} />
-      <MainScreen />
+      <StatusBar barStyle={'default'} />
+      <AppNavigation />
     </SafeAreaView>
   );
 };
