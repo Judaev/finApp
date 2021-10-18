@@ -1,13 +1,16 @@
-import React, { FunctionComponent, memo } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { FunctionComponent, memo, useMemo } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
 import { Theme } from '../core/types/theme';
 import useStyles from '../hooks/useStyles';
+import useTheme from '../hooks/useTheme';
 
 interface IButton {
   text: string;
   onPress: () => void;
   height?: number;
   width?: number;
+  style?: ViewStyle;
+  isActiveBorder?: boolean;
 }
 
 const Button: FunctionComponent<IButton> = memo(function Button({
@@ -15,12 +18,27 @@ const Button: FunctionComponent<IButton> = memo(function Button({
   onPress,
   height = 55,
   width,
+  style,
+  isActiveBorder,
 }) {
   const appStyle = useStyles(styleSheet);
+  const theme = useTheme();
+
+  const borderColorCurrent = useMemo(() => {
+    return isActiveBorder ? theme.primary : theme.background;
+  }, []);
 
   return (
     <TouchableOpacity onPress={onPress}>
-      <View style={{ ...appStyle.buttonFrame, height, width }}>
+      <View
+        style={{
+          ...appStyle.buttonFrame,
+          ...style,
+          height,
+          width,
+          borderColor: borderColorCurrent,
+        }}
+      >
         <Text style={appStyle.text}>{text}</Text>
       </View>
     </TouchableOpacity>
@@ -32,8 +50,8 @@ const styleSheet = (theme: Theme) =>
     buttonFrame: {
       justifyContent: 'center',
       borderWidth: 2,
-      borderColor: theme.primary,
       borderRadius: 15,
+      backgroundColor: theme.primary,
     },
     text: {
       textAlign: 'center',

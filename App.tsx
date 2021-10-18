@@ -3,7 +3,7 @@ import { SafeAreaView, StatusBar } from 'react-native';
 import { RecoilRoot } from 'recoil';
 import AppNavigation from './src/navigation';
 
-const ConfigureApp = () => {
+export const ConfigureApp = () => {
   return (
     <SafeAreaView style={{ backgroundColor: 'white', height: '100%' }}>
       <StatusBar barStyle={'default'} />
