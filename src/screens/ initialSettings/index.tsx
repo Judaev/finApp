@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/core';
 import React, { FunctionComponent, memo, useCallback, useState } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { useRecoilState } from 'recoil';
-import Button from '../../components/Button';
+import Button from '../../components/button';
 import TextEdit from '../../components/TextEdit';
 import paddings from '../../core/constants/paddings';
 import { Theme } from '../../core/types/theme';

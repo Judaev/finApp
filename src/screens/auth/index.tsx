@@ -1,8 +1,8 @@
 import { useNavigation } from '@react-navigation/core';
-import React, { FunctionComponent, memo, useCallback } from 'react';
+import React, { FunctionComponent, memo, useCallback, useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import Button from '../../components/Button';
+import Button from '../../components/button';
 import { Theme } from '../../core/types/theme';
 import useStyles from '../../hooks/useStyles';
 import useTheme from '../../hooks/useTheme';
@@ -28,6 +28,9 @@ const RegistrationScreen: FunctionComponent = memo(function RegistrationScreen()
     return navigate('InitialSettings');
   }, []);
 
+  const [loginTextValue, onChangeLoginTextValue] = useState('');
+  const [passwordTextValue, onChangePasswordTextValue] = useState('');
+
   return (
     <View style={{ ...appStyles.mainFrame }}>
       <Text style={appStyles.title}>Registration</Text>
@@ -35,11 +38,15 @@ const RegistrationScreen: FunctionComponent = memo(function RegistrationScreen()
         placeholder='Login'
         placeholderTextColor={theme.textPrimary}
         style={appStyles.textInput}
+        defaultValue={loginTextValue}
+        onChangeText={onChangeLoginTextValue}
       />
       <TextInput
         placeholder='Password'
         placeholderTextColor={theme.textPrimary}
         style={appStyles.textInput}
+        defaultValue={passwordTextValue}
+        onChangeText={onChangePasswordTextValue}
       />
       <Button width={WIDTH_SUBMIT} text='Sibmit' onPress={onSubmit} />
       <TouchableOpacity onPress={skipRegistration}>

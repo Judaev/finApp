@@ -1,7 +1,7 @@
 import React, { FunctionComponent, memo, useCallback } from 'react';
 import { Text, View } from 'react-native';
 import { useRecoilState } from 'recoil';
-import Button from '../../components/Button';
+import Button from '../../components/button';
 import darkTheme from '../../core/types/darkTheme';
 import mainTheme from '../../core/types/mainTheme';
 import themeAtom from '../../store/recoil/app/themeAtom';

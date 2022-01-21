@@ -114,7 +114,7 @@ const BottomTabNavigation: FunctionComponent = memo(function BottomTabNavigation
     >
       <Tab.Screen
         name={BOTTOM_TABS_ROUTES.MAIN}
-        component={MainScreen}
+        component={MainScreen} // dashboard
         options={{
           tabBarIcon: ({ color, size }) => <Icon name={IconNames.home} color={color} size={size} />,
         }}
@@ -129,20 +129,20 @@ const BottomTabNavigation: FunctionComponent = memo(function BottomTabNavigation
         }}
       />
       <Tab.Screen
-        name={BOTTOM_TABS_ROUTES.PROFILE}
-        component={ProfileScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Icon name={IconNames.accountCard} color={color} size={size} />
-          ),
-        }}
-      />
-      <Tab.Screen
         name='Notifications'
         component={NotificationsScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Icon name={IconNames.phone} color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={BOTTOM_TABS_ROUTES.PROFILE}
+        component={ProfileScreen} // profile
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon name={IconNames.accountCard} color={color} size={size} />
           ),
         }}
       />
@@ -160,10 +160,10 @@ const AppNavigation: FunctionComponent = memo(function AppNavigation() {
             // header: (props) => <Header {...props} />,
           }}
         >
-          <Stack.Screen name='Intro' component={IntroScreen} />
-          <Stack.Screen name='Registration' component={RegistrationScreen} />
-          <Stack.Screen name='InitialSettings' component={InitialSettingsScreen} />
+          {/* <Stack.Screen name='InitialSettings' component={InitialSettingsScreen} /> */}
           <Stack.Screen name='MainScreen' component={BottomTabNavigation} />
+          <Stack.Screen name='Intro' component={IntroScreen} />
+          {/* <Stack.Screen name='Registration' component={RegistrationScreen} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

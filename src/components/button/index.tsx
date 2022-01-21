@@ -1,8 +1,8 @@
 import React, { FunctionComponent, memo, useMemo } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
-import { Theme } from '../core/types/theme';
-import useStyles from '../hooks/useStyles';
-import useTheme from '../hooks/useTheme';
+import { Text, TouchableOpacity, View, ViewStyle } from 'react-native';
+import useStyles from '../../hooks/useStyles';
+import useTheme from '../../hooks/useTheme';
+import { buttonStylesSheet } from './styles';
 
 interface IButton {
   text: string;
@@ -21,7 +21,7 @@ const Button: FunctionComponent<IButton> = memo(function Button({
   style,
   isActiveBorder,
 }) {
-  const appStyle = useStyles(styleSheet);
+  const appStyle = useStyles(buttonStylesSheet);
   const theme = useTheme();
 
   const borderColorCurrent = useMemo(() => {
@@ -44,21 +44,5 @@ const Button: FunctionComponent<IButton> = memo(function Button({
     </TouchableOpacity>
   );
 });
-
-const styleSheet = (theme: Theme) =>
-  StyleSheet.create({
-    buttonFrame: {
-      justifyContent: 'center',
-      borderWidth: 2,
-      borderRadius: 15,
-      backgroundColor: theme.primary,
-    },
-    text: {
-      textAlign: 'center',
-      paddingVertical: 5,
-      color: theme.textPrimary,
-      fontWeight: '600',
-    },
-  });
 
 export default Button;

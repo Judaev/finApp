@@ -44,7 +44,7 @@ const OperationButton: FunctionComponent<IOperationButton> = memo(function Opera
 const styleSheet = (theme: Theme) =>
   StyleSheet.create({
     container: {
-      backgroundColor: theme.background,
+      backgroundColor: theme.backgroundSecondary,
       alignItems: 'center',
     },
     text: {
@@ -58,7 +58,7 @@ const styleSheet = (theme: Theme) =>
       height: 50,
       width: 50,
       borderRadius: 50,
-      backgroundColor: theme.backgroundSecondary,
+      backgroundColor: theme.background,
     },
   });
 

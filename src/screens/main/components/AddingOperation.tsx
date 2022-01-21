@@ -47,7 +47,7 @@ const styleSheet = (theme: Theme) =>
     container: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      backgroundColor: theme.background,
+      backgroundColor: theme.backgroundSecondary,
     },
     text: {
       color: theme.textPrimary,
